@@ -1,6 +1,7 @@
 package ru.netology.test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.github.bonigarcia.wdm.managers.ChromeDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,24 +9,34 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import static io.github.bonigarcia.wdm.config.DriverManagerType.CHROME;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CallbackTest {
 
     private WebDriver driver;
-
     @BeforeAll
-    static void setUpAll() {
-        System.setProperty("webdriver.chrome.driver", "./driver/win/chromedriver.exe");
+    public static void setupClass() {
+        WebDriverManager.chromedriver().setup();
     }
 
-    @BeforeEach
+   /** @BeforeAll
+    static void setUpAll() {
+        System.setProperty("webdriver.chrome.driver", "./driver/win/chromedriver.exe");
+
+    }*/
+
+
+
+   @BeforeEach
     void setUp() {
-        ChromeOptions options = new ChromeOptions();
+    ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
-        driver = new ChromeDriver(options);
+
+     driver = new ChromeDriver(options);
+
 
     }
 
