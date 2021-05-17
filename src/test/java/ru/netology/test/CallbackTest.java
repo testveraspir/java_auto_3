@@ -15,12 +15,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CallbackTest {
 
     private WebDriver driver;
-    @BeforeAll
-    public static void setupClass() {
-        WebDriverManager.chromedriver().setup();
-    }
 
-   /** @BeforeAll
+
+
+ /** @BeforeAll
     static void setUpAll() {
         System.setProperty("webdriver.chrome.driver", "./driver/win/chromedriver.exe");
 
@@ -30,6 +28,7 @@ public class CallbackTest {
 
    @BeforeEach
     void setUp() {
+           WebDriverManager.chromedriver().setup();
     ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--no-sandbox");
