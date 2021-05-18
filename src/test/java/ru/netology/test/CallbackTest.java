@@ -47,7 +47,7 @@ public class CallbackTest {
     void shouldTest() {
         driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Петров Иван");
-        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79017865423");
+        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("79017865423");
         driver.findElement(By.cssSelector(".checkbox")).click();
         driver.findElement(By.cssSelector(".button")).click();
         String text = driver.findElement(By.cssSelector("[data-test-id=order-success]")).getText();
